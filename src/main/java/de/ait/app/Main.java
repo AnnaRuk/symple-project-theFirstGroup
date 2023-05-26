@@ -56,6 +56,11 @@ public class Main {
                     int tallestAge = usersService.getAgeOfTallestPerson();
                     System.out.println(tallestAge);
                     break;
+                case 6:
+                    System.out.println("Выводим имя и фамилию самого низкого пользователя");
+                    String fullNameOfShortest = usersService.getFullNameOfShortest();
+                    System.out.println(fullNameOfShortest);
+                    break;
                 case 0:
                     System.out.println("Выход");
                     System.exit(0);

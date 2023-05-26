@@ -8,8 +8,8 @@ public interface UsersService {
     String getLastNameOfMostAging();
 
 
-
     int getAgeOfTallestPerson();
 
     double getAverageAge();
+    String getFullNameOfShortest();
 }

@@ -5,6 +5,9 @@ public class User {
     private String lastName;
     private int age;
     private double height;
+    public String getFullName(){
+        return firstName + " " + lastName;
+    }
 
     public User(String firstName, String lastName, int age, double height) {
         // TODO: сделать проверки входных данных

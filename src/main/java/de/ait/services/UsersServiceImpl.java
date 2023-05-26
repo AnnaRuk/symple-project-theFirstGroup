@@ -57,6 +57,20 @@ public class UsersServiceImpl implements UsersService {
 
         return maxAge;
     }
+    public String getFullNameOfShortest(){
+        List<User> users = usersRepository.findAll();
+        Map<Double, String> userHeight = new HashMap<>();
+
+        for (User user : users) {
+            userHeight.put(user.getHeight(), user.getFullName());
+        }
+
+        Double minHeight = Collections.min(userHeight.keySet());
+
+        return userHeight.get(minHeight);
+
+
+    }
     public double getAverageAge() {
         List<User> users = usersRepository.findAll();
         int totalAge = 0;
