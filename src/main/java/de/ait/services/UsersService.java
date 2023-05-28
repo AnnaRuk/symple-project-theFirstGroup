@@ -12,8 +12,8 @@ public interface UsersService {
     User createNewUser(String firstName, String lastName, int age, double height);
 
 
-
     int getAgeOfTallestPerson();
 
     double getAverageAge();
+    String getFullNameOfShortest();
 }
