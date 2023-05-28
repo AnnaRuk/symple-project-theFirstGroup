@@ -1,10 +1,10 @@
 package de.ait.repositories;
 
 import de.ait.models.User;
+import de.ait.services.UsersService;
+import de.ait.services.UsersServiceImpl;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +37,8 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
         return users;
     }
 
+
+
     private static User parseLine(String line) {
         String[] parsed = line.split("\\|");
         String firstName = parsed[0];
@@ -47,5 +49,19 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
         return new User(
                 firstName, lastName, age, height
         );
+    }
+
+    @Override
+    public void saveNewUser(User user) {
+
+        try (
+                FileWriter fileWriter = new FileWriter(fileName, true);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {;
+            bufferedWriter.write(user.getFirstName() + "|" + user.getLastName() + "|" + user.getAge() + "|" + user.getHeight());
+            bufferedWriter.newLine();
+
+        } catch (Exception e) {
+            System.out.println("Произошла ошибка");
+        }
     }
 }
