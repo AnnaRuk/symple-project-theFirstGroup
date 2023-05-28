@@ -30,16 +30,21 @@ public class UsersServiceImpl implements UsersService {
 
         List<User> users = usersRepository.findAll();
         Map<Integer, String> userAge = new HashMap<>();
-
         for (User user : users) {
             userAge.put(user.getAge(), user.getLastName());
         }
-
         int maxAge = Collections.max(userAge.keySet());
 
         return userAge.get(maxAge);
     }
 
+    @Override
+    public User createNewUser(String firstName, String lastName, int age, double height) {
+        User newUser = new User(firstName, lastName,age,height);
+        usersRepository.saveNewUser(newUser);
+return newUser;
+
+    }
 
 
     @Override

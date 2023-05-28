@@ -1,5 +1,7 @@
 package de.ait.models;
 
+import java.util.Objects;
+
 public class User {
     private String firstName;
     private String lastName;
@@ -31,5 +33,23 @@ public class User {
 
     public double getHeight() {
         return height;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName + " " + age +
+                " " + height;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+        return getAge() == user.getAge() && Double.compare(user.getHeight(), getHeight()) == 0 && Objects.equals(getFirstName(), user.getFirstName()) && Objects.equals(getLastName(), user.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstName(), getLastName(), getAge(), getHeight());
     }
 }
