@@ -42,7 +42,7 @@ public class UsersServiceImpl implements UsersService {
     public User createNewUser(String firstName, String lastName, int age, double height) {
         User newUser = new User(firstName, lastName,age,height);
         usersRepository.saveNewUser(newUser);
-return newUser;
+        return newUser;
 
     }
 
@@ -79,11 +79,9 @@ return newUser;
     public double getAverageAge() {
         List<User> users = usersRepository.findAll();
         int totalAge = 0;
-
         for (User user : users) {
             totalAge += user.getAge();
         }
-
         if (users.size() > 0) {
             return (double) totalAge / users.size();
         } else {

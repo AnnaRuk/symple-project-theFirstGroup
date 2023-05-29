@@ -44,4 +44,30 @@ class UsersServiceImplTest {
         User expected = new User("User1", "User1", 20, 1.81);
         assertEquals(expected,actual);
     }
+    @Test
+    void testGetLastNameOfMostAging(){
+        String actual = usersService.getLastNameOfMostAging();
+        String expected = "Petrov";
+        assertEquals(expected,actual);
+    }
+    @Test
+    void getAverageAge() {
+        double actual = usersService.getAverageAge();
+        double expected = 25;
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void getAgeOfTallestPerson() {
+        int actual = usersService.getAgeOfTallestPerson();
+        int expected = 30;
+        assertEquals(expected,actual);
+    }
+    @Test
+    void testGetFullNameOfShortest() {
+        String actual= usersService.getFullNameOfShortest();
+        String expected = "Maxim Ivanov";
+
+        assertEquals(expected, actual);
+    }
 }
