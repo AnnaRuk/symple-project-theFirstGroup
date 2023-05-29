@@ -8,9 +8,11 @@ import java.util.List;
 public class UsersRepositoryListImpl implements UsersRepository {
 
     private List<User> users = new ArrayList<>(List.of(
-            new User("firstUser1", "lastUser1", 20, 1.8),
-            new User("User1", "User1", 25, 1.81),
-            new User("User3", "User3", 30, 1.90)
+            new User("Marsel", "Sidikov", 29, 1.85),
+            new User("Maxim", "Ivanov", 19, 1.79),
+            new User("Ruslan", "Kochkin", 41, 1.83),
+            new User("Kirill", "Petrov", 55, 1.90),
+        new User("Anna", "Petrova", 54, 1.55)
     ));
 
     @Override

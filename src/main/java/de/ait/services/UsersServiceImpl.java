@@ -10,6 +10,7 @@ public class UsersServiceImpl implements UsersService {
     private UsersRepository usersRepository;
 
     public UsersServiceImpl(UsersRepository usersRepository) {
+
         this.usersRepository = usersRepository;
     }
 
@@ -40,7 +41,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public User createNewUser(String firstName, String lastName, int age, double height) {
-        User newUser = new User(firstName, lastName,age,height);
+        User newUser = new User(firstName, lastName, age, height);
         usersRepository.saveNewUser(newUser);
         return newUser;
 
@@ -62,7 +63,8 @@ public class UsersServiceImpl implements UsersService {
 
         return maxAge;
     }
-    public String getFullNameOfShortest(){
+
+    public String getFullNameOfShortest() {
         List<User> users = usersRepository.findAll();
         Map<Double, String> userHeight = new HashMap<>();
 
@@ -76,6 +78,7 @@ public class UsersServiceImpl implements UsersService {
 
 
     }
+
     public double getAverageAge() {
         List<User> users = usersRepository.findAll();
         int totalAge = 0;

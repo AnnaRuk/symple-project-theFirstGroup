@@ -22,7 +22,7 @@ class UsersServiceImplTest {
     @Test
     void getNames() {
         List<String> actual = usersService.getNames();
-        List<String> expected = Arrays.asList("User1", "User2", "User3");
+        List<String> expected = Arrays.asList("Marsel", "Maxim", "Ruslan","Kirill", "Anna");
         assertEquals(expected, actual);
     }
 
@@ -32,7 +32,7 @@ class UsersServiceImplTest {
                 usersRepositoryList.getUsers().get(0).getLastName(),
                 usersRepositoryList.getUsers().get(0).getAge(),
                 usersRepositoryList.getUsers().get(0).getHeight());
-        User expected = new User("firstUser1", "lastUser1", 20, 1.8);
+        User expected = new User("Marsel", "Sidikov", 29, 1.85);
         assertEquals(expected,actual);
     }
     @Test
@@ -41,7 +41,7 @@ class UsersServiceImplTest {
                 usersRepositoryList.getUsers().get(1).getLastName(),
                 usersRepositoryList.getUsers().get(1).getAge(),
                 usersRepositoryList.getUsers().get(1).getHeight());
-        User expected = new User("User1", "User1", 20, 1.81);
+        User expected = new User("Maxim", "Ivanov", 19, 1.79);
         assertEquals(expected,actual);
     }
     @Test
@@ -53,20 +53,20 @@ class UsersServiceImplTest {
     @Test
     void getAverageAge() {
         double actual = usersService.getAverageAge();
-        double expected = 25;
+        double expected = 39.6;
         assertEquals(expected,actual);
     }
 
     @Test
     void getAgeOfTallestPerson() {
         int actual = usersService.getAgeOfTallestPerson();
-        int expected = 30;
+        int expected = 55;
         assertEquals(expected,actual);
     }
     @Test
     void testGetFullNameOfShortest() {
         String actual= usersService.getFullNameOfShortest();
-        String expected = "Maxim Ivanov";
+        String expected = "Anna Petrova";
 
         assertEquals(expected, actual);
     }

@@ -5,7 +5,7 @@ import de.ait.repositories.UsersRepositoryListImpl;
 import de.ait.repositories.UsersRepositoryTextFileImpl;
 import de.ait.services.UsersService;
 import de.ait.services.UsersServiceImpl;
-import org.w3c.dom.ls.LSOutput;
+
 
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        UsersRepository usersRepository = new UsersRepositoryTextFileImpl("saveusers.txt");
+        UsersRepository usersRepository = new UsersRepositoryTextFileImpl("users.txt");
         UsersRepository testUserRepository = new UsersRepositoryListImpl();
         UsersService usersService = new UsersServiceImpl(usersRepository);
 
@@ -31,22 +31,19 @@ public class Main {
             scanner.nextLine();
 
             switch (command) {
-                case 1:
+                case 1 -> {
                     System.out.println("Выводим имена пользователей...");
                     List<String> names = usersService.getNames();
                     for (String name : names) {
                         System.out.println(name);
                     }
-
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("Выводим самого взрослого пользователя");
                     String lastName = usersService.getLastNameOfMostAging();
                     System.out.println(lastName);
-
-                    break;
-
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("Сохранить нового пользователя");
                     System.out.println("Введите имя");
                     String firstName = scanner.nextLine();
@@ -56,29 +53,29 @@ public class Main {
                     int age = Integer.parseInt(scanner.nextLine());
                     System.out.println("Введите рост");
                     double height = Double.parseDouble(scanner.nextLine());
-                    usersService.createNewUser(firstName,secondName,age,height);
-
-                    break;
-                case 4:
+                    usersService.createNewUser(firstName, secondName, age, height);
+                }
+                case 4 -> {
                     System.out.println("Выводим средний возраст всех пользователей");
                     double averageAge = usersService.getAverageAge();
-                    System.out.println(averageAge);
-                    break;
-                case 5:
+                    System.out.printf("%.2f"+ System.lineSeparator(),averageAge);
+
+                }
+                case 5 -> {
                     System.out.println("Выводим возраст самого высокого человека");
                     int tallestAge = usersService.getAgeOfTallestPerson();
                     System.out.println(tallestAge);
-                    break;
-                case 6:
+                }
+                case 6 -> {
                     System.out.println("Выводим имя и фамилию самого низкого пользователя");
                     String fullNameOfShortest = usersService.getFullNameOfShortest();
                     System.out.println(fullNameOfShortest);
-                    break;
-                case 0:
+                }
+                case 0 -> {
                     System.out.println("Выход");
                     System.exit(0);
-                default:
-                    System.out.println("Команда не распознана");
+                }
+                default -> System.out.println("Команда не распознана");
             }
         }
     }
